@@ -5,3 +5,7 @@ publish:
 
 gendiff:
 	node bin/gendiff.js -h
+
+lint:
+	npm install -g eslint
+
