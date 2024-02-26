@@ -14,9 +14,7 @@ program
   .action((filepath1, filepath2) => {
     // const argument1 = parseJsone(filepath1);
     // const argument2 = parseJsone(filepath2);
-  
     console.log(genDiff(filepath1, filepath2));
   });
 
 program.parse();
-
