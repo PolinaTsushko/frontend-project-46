@@ -9,7 +9,6 @@ const parseJsone = (argument) => {
 };
 
 const genDiff = (filepath1, filepath2) => {
-
   const object1 = parseJsone(filepath1);
   const object2 = parseJsone(filepath2);
 
@@ -19,19 +18,19 @@ const genDiff = (filepath1, filepath2) => {
 
   const added = unionKeys
     .filter((key) => !Object.hasOwn(object1, key))
-    .map((key) => [key, { sign: '+', value: object2[key] }]);
+    .map((key) => [key, { sign: 'added', value: object2[key] }]);
 
   const deleted = unionKeys
     .filter((key) => !Object.hasOwn(object2, key))
-    .map((key) => [key, { sign: '-', value: object1[key] }]);
+    .map((key) => [key, { sign: 'deleted', value: object1[key] }]);
 
   const unchanged = unionKeys
     .filter((key) => Object.hasOwn(object2, key) && object1[key] === object2[key])
-    .map((key) => [key, { sign: ' ', value: object1[key] }]);
+    .map((key) => [key, { sign: 'unchanged', value: object1[key] }]);
 
   const changed = firstArgumentKeys
     .filter((key) => Object.hasOwn(object2, key) && object1[key] !== object2[key])
-    .map((key) => [key, { sign1: '-', value1: object1[key], sign2: '+', value2: object2[key]}]);
+    .map((key) => [key, { sign: 'changed', value1: object1[key], sign: 'changed', value2: object2[key]}]);
 
   const entries = [...added, ...deleted, ...changed, ...unchanged];
   const sortedByEntries = _.sortBy((entries));
