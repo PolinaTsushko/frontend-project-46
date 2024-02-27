@@ -9,3 +9,6 @@ gendiff:
 lint:
 	npm install -g eslint
 
+test:
+	npm test
+
