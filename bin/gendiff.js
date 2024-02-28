@@ -3,6 +3,7 @@
 import { Command } from 'commander';
 // import parseJsone from '../src/index.js';
 import genDiff from '../src/index.js';
+
 const program = new Command();
 
 program

@@ -41,6 +41,7 @@ const genDiff = (filepath1, filepath2) => {
       if (!_.isObject(currentValue)) {
         return `${currentValue}`;
       }
+
       const indentSize = depth * spacesCount;
       const currentIndent = replacer.repeat(indentSize);
       const bracketIndent = replacer.repeat(indentSize - spacesCount);

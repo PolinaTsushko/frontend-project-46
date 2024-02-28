@@ -5,7 +5,6 @@
   "description": "[![Actions Status](https://github.com/PolinaTsushko/frontend-project-46/actions/workflows/hexlet-check.yml/badge.svg)](https://github.com/PolinaTsushko/frontend-project-46/actions)",
   "bin": {
     "gendiff": "bin/gendiff.js"
-  
   },
   "main": "gendiff.js",
   "scripts": {
@@ -21,6 +20,7 @@
   "devDependencies": {
     "eslint": "^8.56.0",
     "eslint-config-airbnb-base": "^15.0.0",
-    "eslint-plugin-import": "^2.29.1"
+    "eslint-plugin-import": "^2.29.1",
+    "jest": "^29.7.0"
   }
 }
