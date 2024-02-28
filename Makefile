@@ -10,5 +10,8 @@ lint:
 	npm install -g eslint
 
 test:
-	npm test
+	npx jest
+
+test-coverage:
+	npx jest --coverage
 
