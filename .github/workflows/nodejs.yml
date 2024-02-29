@@ -43,3 +43,4 @@ jobs:
           coverageLocations: |
             ${{github.workspace}}/client/coverage/lcov.info:lcov
             ${{github.workspace}}/server/coverage/lcov.info:lcovFF
+          debug: true
