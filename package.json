@@ -6,14 +6,15 @@
   "bin": {
     "gendiff": "bin/gendiff.js"
   },
-  "main": "gendiff.js",
+  "main": "index.js",
   "scripts": {
-    "test": "-h"
+    "test": "jest"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "commander": "^12.0.0",
+    "js-yaml": "^4.1.0",
     "lodash": "^4.17.21",
     "node-modules": "^1.0.1"
   },

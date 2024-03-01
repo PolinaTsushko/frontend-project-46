@@ -4,7 +4,7 @@ publish:
 	npm publish --dry-run
 
 gendiff:
-	node bin/gendiff.js -h
+	node bin/gendiff.js
 
 lint:
 	npm install -g eslint

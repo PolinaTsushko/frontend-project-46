@@ -1,16 +1,14 @@
 import * as fs from 'node:fs';
 import * as path from 'node:path';
+import { cwd } from 'node:process';
+import parseJsone from '../src/parsers.js';
 import _ from 'lodash';
 
-const parseJsone = (argument) => {
-  const result = JSON.parse(fs.readFileSync(path.resolve(argument), 'utf8'));
-
-  return result;
-};
+const getFile = (filepath) => parseJsone(fs.readFileSync(path.resolve(cwd(), filepath)));
 
 const genDiff = (filepath1, filepath2) => {
-  const object1 = parseJsone(filepath1);
-  const object2 = parseJsone(filepath2);
+  const object1 = getFile(filepath1);
+  const object2 = getFile(filepath2);
 
   const firstArgumentKeys = Object.keys(object1);
   const secondArgumentKeys = Object.keys(object2);
