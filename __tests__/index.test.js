@@ -7,8 +7,11 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 const getPathFromFixtures = (filename) => path.join(__dirname, '..', '__fixtures__', filename);
 
-const filepath1 = getPathFromFixtures('file1.json');
-const filepath2 = getPathFromFixtures('file2.json');
+const filepathJson1 = getPathFromFixtures('file1.json');
+const filepathJson2 = getPathFromFixtures('file2.json');
+
+const filepathYml1 = getPathFromFixtures('file1.yml');
+const filepathYml2 = getPathFromFixtures('file2.yml');
 
 
 const flat = `{
@@ -22,7 +25,6 @@ const flat = `{
 
 
 test('genDiff', () => {
-  expect(genDiff(filepath1, filepath2)).toEqual(flat);
-  // expect(genDiff('file1.json', 'file2.json')).toEqual(flat);
-  // expect(genDiff('../__fixtures__/file1.yml', '../__fixtures__/file2.yml')).toEqual(flat);
+  expect(genDiff(filepathJson1, filepathJson2)).toEqual(flat);
+  expect(genDiff(filepathYml1, filepathYml2)).toEqual(flat);
 });

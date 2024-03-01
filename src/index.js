@@ -1,7 +1,7 @@
 import * as fs from 'node:fs';
 import * as path from 'node:path';
 import { cwd } from 'node:process';
-import parseJsone from '../src/parsers.js';
+import { parseJsone, parseYml } from '../src/parsers.js';
 import _ from 'lodash';
 
 const getFile = (filepath) => parseJsone(fs.readFileSync(path.resolve(cwd(), filepath)));

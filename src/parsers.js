@@ -1,3 +1,5 @@
-const parseJsone = (filepath) => JSON.parse(filepath);
+import yaml from 'js-yaml';
 
-export default parseJsone;
+export const parseJsone = (filepath) => JSON.parse(filepath);
+
+export const parseYml = (filepath) => yaml.load(filepath);
