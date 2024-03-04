@@ -2,7 +2,6 @@ import { fileURLToPath } from 'url';
 import path, { dirname } from 'path';
 import genDiff from '../src/index.js';
 
-
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 const getPathFromFixtures = (filename) => path.join(__dirname, '..', '__fixtures__', filename);
@@ -12,7 +11,6 @@ const filepathJson2 = getPathFromFixtures('file2.json');
 
 const filepathYml1 = getPathFromFixtures('file1.yml');
 const filepathYml2 = getPathFromFixtures('file2.yml');
-
 
 const flat = `{
  - follow: false
