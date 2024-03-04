@@ -21,7 +21,6 @@ const flat = `{
  + verbose: true
 }`;
 
-
 test('genDiff', () => {
   expect(genDiff(filepathJson1, filepathJson2)).toEqual(flat);
   expect(genDiff(filepathYml1, filepathYml2)).toEqual(flat);
