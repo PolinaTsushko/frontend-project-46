@@ -1,5 +1,12 @@
 import yaml from 'js-yaml';
+import fs from 'fs';
 
-export const parseJsone = (filepath) => JSON.parse(filepath);
+const getFile = (filepath) => fs.readFileSync(filepath, 'utf-8');
 
-export const parseYml = (filepath) => yaml.load(filepath);
+const parsers = (filepath, format) => {
+  if (format === 'json') {
+    return JSON.parse(getFile(filepath));
+  } return yaml.load(getFile(filepath));
+};
+
+export default parsers;
