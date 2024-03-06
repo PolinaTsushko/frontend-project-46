@@ -1,5 +1,6 @@
 import { fileURLToPath } from 'url';
 import path, { dirname } from 'path';
+// import {expect, jest, test} from '@jest/globals';
 import genDiff from '../src/index.js';
 
 const __filename = fileURLToPath(import.meta.url);
@@ -13,12 +14,12 @@ const filepathYml1 = getPathFromFixtures('file1.yml');
 const filepathYml2 = getPathFromFixtures('file2.yml');
 
 const flat = `{
- - follow: false
-   host: hexlet.io
- - proxy: 123.234.53.22
- - timeout: 50
- + timeout: 20
- + verbose: true
+  - follow: false
+    host: hexlet.io
+  - proxy: 123.234.53.22
+  - timeout: 50
+  + timeout: 20
+  + verbose: true
 }`;
 
 test('genDiff', () => {
