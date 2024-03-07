@@ -23,7 +23,7 @@ const findDiff = (object1, object2) => {
 
   const hasChildren = unionKeys
     .filter((key) => _.isObject(object1[key]) && _.isObject(object2[key]))
-    .map((key) => [key, { value: findDiff(object1[key], object2[key]) }]);
+    .map((key) => [key, { sign: 'hasChildren', value: findDiff(object1[key], object2[key]) }]);
 
   const entries = [...added, ...deleted, ...unchanged, ...changed, ...hasChildren];
   const sortedByEntries = _.sortBy(entries);

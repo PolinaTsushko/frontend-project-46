@@ -21,8 +21,10 @@ const stringify = (value, replacer = ' ', spacesCount = 2) => {
             return `${currentIndent}  ${key}: ${iter(val.value, depth + 2)}`;
           case 'changed':
             return `${currentIndent}- ${key}: ${iter(val.value1, depth + 2)}\n${currentIndent}+ ${key}: ${iter(val.value2, depth + 2)}`;
-          default:
+          case 'hasChildren':
             return `${currentIndent}  ${key}: ${iter(val.value, depth + 2)}`;
+          default:
+            return `${currentIndent}  ${key}: ${iter(val, depth + 2)}`;
         }
       });
     return [
