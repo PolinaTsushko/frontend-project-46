@@ -1,7 +1,7 @@
 import * as path from 'node:path';
-import stringify from './stylish.js';
-import findDiff from './findDiff.js';
-import parsers from './parsers.js';
+import stringify from '../src/stylish.js';
+import findDiff from '../src/findDiff.js';
+import parsers from '../src/parsers.js';
 
 const getPath = (filepath) => parsers(path.resolve(process.cwd(), filepath));
 
