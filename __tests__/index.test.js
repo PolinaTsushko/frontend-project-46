@@ -17,7 +17,12 @@ const filepathJson2 = getPathFromFixtures('file2.json');
 const filepathYml1 = getPathFromFixtures('file1.yml');
 const filepathYml2 = getPathFromFixtures('file2.yml');
 
-test('genDiff', () => {
-  expect(genDiff(filepathJson1, filepathJson2)).toBe(flatJson);
-  expect(genDiff(filepathYml1, filepathYml2)).toBe(flatYml);
+test('genDiff stylish', () => {
+  expect(genDiff(filepathJson1, filepathJson2, 'stylish')).toEqual(flatJson);
+  expect(genDiff(filepathYml1, filepathYml2, 'stylish')).toEqual(flatYml);
+});
+
+test('genDiff plain', () => {
+  expect(genDiff(filepathJson1, filepathJson2, 'plain')).toEqual(flatJson);
+  expect(genDiff(filepathYml1, filepathYml2, 'plain')).toEqual(flatYml);
 });
