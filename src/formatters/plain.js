@@ -9,8 +9,8 @@ const stringify1 = (value) => {
     if (typeof value === 'string') {
       return `${currentValue}`
 
-    } return currentValue
-  };
+    } 
+
   const lines = Object
     .entries(currentValue)
     .map(([key, val]) => {
@@ -22,14 +22,19 @@ const stringify1 = (value) => {
         case 'changed':
           return `Property ${key} was updated. From ${stringify1(val.value1)} to ${stringify1(val.value2)}`;
         case 'hasChildren':
-          return `${currentIndent}  ${key}: ${iter(val.value, depth + 2)}`;
+          return `${iter(val.value, key)}`;
         default:
           return [];
       }
     });
   return [
+    '{',
+    ...lines,
   ].join('\n');
 };
-// return iter(value, 1);
+return iter(value, 1);
+};
+
+
 
 export default stringify1;
