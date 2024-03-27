@@ -1,6 +1,6 @@
 import _ from 'lodash';
 
-const stringify = (value) => {
+const stringify1 = (value) => {
   const iter = (currentValue, depth) => {
     if (!_.isObject(currentValue)) {
       return '[complex value]';
@@ -16,22 +16,20 @@ const stringify = (value) => {
     .map(([key, val]) => {
       switch (val.sign) {
         case 'added':
-          return `Property 'common.follow' was added with value: false`;
+          return `Property ${key} was added with value: ${stringify1(val.value)}`;
         case 'deleted':
-          return `Property 'common.setting2' was removed`;
-        case 'unchanged':
-          return `${currentIndent}  ${key}: ${iter(val.value, depth + 2)}`;
+          return `Property ${key} was removed`;
         case 'changed':
-          return `Property 'common.setting3' was updated. From true to null`;
+          return `Property ${key} was updated. From ${stringify1(val.value1)} to ${stringify1(val.value2)}`;
         case 'hasChildren':
           return `${currentIndent}  ${key}: ${iter(val.value, depth + 2)}`;
         default:
-          return `${currentIndent}  ${key}: ${iter(val, depth + 2)}`;
+          return [];
       }
     });
   return [
   ].join('\n');
 };
-return iter(value, 1);
+// return iter(value, 1);
 
-export default stringify;
+export default stringify1;
