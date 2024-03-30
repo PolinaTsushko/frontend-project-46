@@ -1,26 +1,24 @@
 import _ from 'lodash';
 
 const stringify = (value) => {
-  const iter = (currentValue) => {
+  if (_.isPlainObject(value)) {
+    return '[complex value]'
+  }
+  return `'${value}'`;
+};
 
-    if (!_.isObject(currentValue)) {
-      return `'${currentValue}'`;
-    }
-
-    if (typeof currentValue === 'string') {
-      return `${currentValue}`;
-    }
-
+const plain = (plainValue) => {
+  const iter = (currentValue, depth) => {
     const lines = Object
       .entries(currentValue)
       .map(([key, val]) => {
         switch (val.sign) {
           case 'added':
-            return `Property '${key}' was added with value: ${iter(val.value)}`;
+            return `Property '${key}' was added with value: ${stringify(val.value)}`;
           case 'deleted':
             return `Property '${key}' was removed`;
           case 'changed':
-            return `Property '${key}' was updated. From ${iter(val.value1)} to ${iter(val.value2)}`;
+            return `Property '${key}' was updated. From ${stringify(val.value1)} to ${stringify(val.value2)}`;
           case 'hasChildren':
             return `${iter(val.value, key)}`;
           default:
@@ -29,7 +27,8 @@ const stringify = (value) => {
       }).join('\n')
     return lines;
   };
-  return iter(value, '');
+  return iter(plainValue, '');
 };
 
-export default stringify;
+export default plain;
+
