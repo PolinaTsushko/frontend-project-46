@@ -12,15 +12,16 @@ const plain = (plainValue) => {
     const lines = Object
       .entries(currentValue)
       .map(([key, val]) => {
+        const plainKey = (`${depth}.${key}`).replace(/^./, ' ');
         switch (val.sign) {
           case 'added':
-            return `Property '${key}' was added with value: ${stringify(val.value)}`;
+            return `Property '${plainKey}' was added with value: ${stringify(val.value)}`;
           case 'deleted':
-            return `Property '${key}' was removed`;
+            return `Property '${plainKey}' was removed`;
           case 'changed':
-            return `Property '${key}' was updated. From ${stringify(val.value1)} to ${stringify(val.value2)}`;
+            return `Property '${plainKey}' was updated. From ${stringify(val.value1)} to ${stringify(val.value2)}`;
           case 'hasChildren':
-            return `${iter(val.value, key)}`;
+            return `${iter(val.value, plainKey)}`;
           default:
             return [];
         }
