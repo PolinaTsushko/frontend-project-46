@@ -4,15 +4,18 @@ const stringify = (value) => {
   if (_.isPlainObject(value)) {
     return '[complex value]'
   }
-  return `'${value}'`;
+  if (typeof value === 'string') {
+    return `'${value}'`
+  }
+  return `${value}`;
 };
 
 const plain = (plainValue) => {
-  const iter = (currentValue, depth) => {
+  const iter = (currentValue, depth = '') => {
     const lines = Object
       .entries(currentValue)
       .map(([key, val]) => {
-        const plainKey = (`${depth}.${key}`).replace(/^./, ' ');
+        const plainKey = _.trimStart(`${depth}.${key}`, '.');
         switch (val.sign) {
           case 'added':
             return `Property '${plainKey}' was added with value: ${stringify(val.value)}`;
@@ -28,7 +31,7 @@ const plain = (plainValue) => {
       }).join('\n')
     return lines;
   };
-  return iter(plainValue, '');
+  return iter(plainValue);
 };
 
 export default plain;
