@@ -14,7 +14,7 @@ const plain = (plainValue) => {
   const iter = (currentValue, depth = '') => {
     const lines = Object
       .entries(currentValue)
-      .map(([key, val]) => {
+      .flatMap(([key, val]) => {
         const plainKey = _.trimStart(`${depth}.${key}`, '.');
         switch (val.sign) {
           case 'added':

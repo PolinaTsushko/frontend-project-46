@@ -35,3 +35,17 @@ test('genDiff yml plain', () => {
   const result = readFixture('plain.txt');
   expect(genDiff(filepath1, filepath2, 'plain')).toEqual(result);
 });
+
+test('genDiff json json', () => {
+  const filepath1 = getPathFromFixtures('file1.json');
+  const filepath2 = getPathFromFixtures('file2.json');
+  const result = readFixture('json.txt');
+  expect(genDiff(filepath1, filepath2, 'json')).toEqual(result);
+});
+
+test('genDiff yml json', () => {
+  const filepath1 = getPathFromFixtures('file1.yml');
+  const filepath2 = getPathFromFixtures('file2.yml');
+  const result = readFixture('json.txt');
+  expect(genDiff(filepath1, filepath2, 'json')).toEqual(result);
+});
