@@ -13,6 +13,6 @@ const formatter = (value, formatName) => {
         default:
             throw new Error(`Something went wrong. Unknown type ${formatName}`)
     }
-}
+};
 
 export default formatter;

@@ -7,6 +7,7 @@ const stringify = (value) => {
   if (typeof value === 'string') {
     return `'${value}'`
   }
+
   return `${value}`;
 };
 
@@ -15,6 +16,7 @@ const plain = (plainValue) => {
     const lines = Object
       .entries(currentValue)
       .flatMap(([key, val]) => {
+
         const plainKey = _.trimStart(`${depth}.${key}`, '.');
         switch (val.sign) {
           case 'added':
@@ -31,6 +33,7 @@ const plain = (plainValue) => {
       }).join('\n')
     return lines;
   };
+
   return iter(plainValue);
 };
 
