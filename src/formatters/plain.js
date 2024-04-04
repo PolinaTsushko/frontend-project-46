@@ -35,4 +35,3 @@ const plain = (plainValue) => {
 };
 
 export default plain;
-
