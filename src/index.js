@@ -1,14 +1,16 @@
 import * as path from 'node:path';
-import findDiff from '../src/findDiff.js';
-import parsers from '../src/parsers.js';
-import formatter from '../src/formatters/index.js';
+import { readFileSync } from 'fs';
+import findDiff from './findDiff.js';
+import parsers from './parsers.js';
+import formatter from './formatters/index.js';
 
-const getPath = (filepath) => parsers(path.resolve(process.cwd(), filepath));
+const buildPass = (filepath) => path.resolve(process.cwd(), filepath);
+const getType = (fileName) => path.extname(fileName).slice(1);
+const getFile = (fileName) => parsers(readFileSync(buildPass(fileName), 'utf8'), getType(fileName));
 
 const genDiff = (filepath1, filepath2, formatName = 'stylish') => {
-  const object1 = getPath(filepath1);
-  const object2 = getPath(filepath2);
-
+  const object1 = getFile(filepath1);
+  const object2 = getFile(filepath2);
   return formatter(findDiff(object1, object2), formatName);
 };
 

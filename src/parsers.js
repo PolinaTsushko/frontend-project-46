@@ -1,14 +1,14 @@
 import yaml from 'js-yaml';
-import fs from 'fs';
-
-const getFile = (filepath) => fs.readFileSync(filepath, 'utf-8');
 
 const parsers = (filepath, formatName) => {
-  if (formatName === 'json') {
-    return JSON.parse(getFile(filepath));
-
+  switch (formatName) {
+    case 'json':
+      return JSON.parse(filepath);
+    case 'yml':
+      return yaml.load(filepath);
+    default:
+      throw new Error(`Invalid format - ${formatName}`);
   }
-  return yaml.load(getFile(filepath));
 };
 
 export default parsers;

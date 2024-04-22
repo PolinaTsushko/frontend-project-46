@@ -2,10 +2,10 @@ import _ from 'lodash';
 
 const stringify = (value) => {
   if (_.isPlainObject(value)) {
-    return '[complex value]'
+    return '[complex value]';
   }
   if (typeof value === 'string') {
-    return `'${value}'`
+    return `'${value}'`;
   }
 
   return `${value}`;
@@ -16,7 +16,6 @@ const plain = (plainValue) => {
     const lines = Object
       .entries(currentValue)
       .flatMap(([key, val]) => {
-
         const plainKey = _.trimStart(`${depth}.${key}`, '.');
         switch (val.sign) {
           case 'added':
@@ -30,7 +29,7 @@ const plain = (plainValue) => {
           default:
             return [];
         }
-      }).join('\n')
+      }).join('\n');
     return lines;
   };
 
