@@ -2,8 +2,8 @@
   "name": "@hexlet/code",
   "version": "1.0.0",
   "type": "module",
-  "description": "Program for comparing two files and display th difference",
-  "main": "index.js",
+  "description": "Program for comparing two files and display the difference",
+  "main": "src/index.js",
   "bin": {
     "gendiff": "bin/gendiff.js"
   },
