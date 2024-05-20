@@ -33,10 +33,18 @@ file_path_2: the path to the second file.
 
 ## Asciinema demonstration
 
+json files [ stylish format ]
+
 [![asciicast](https://asciinema.org/a/C5bLI7odLlch5cPNsZcZPOxmE.svg)](https://asciinema.org/a/C5bLI7odLlch5cPNsZcZPOxmE)
+
+yaml files [ stylish format ]
 
 [![asciicast](https://asciinema.org/a/n3EORd2HaYYinty1GfolAJhXq.svg)](https://asciinema.org/a/n3EORd2HaYYinty1GfolAJhXq)
 
+json files [ plain format ]
+
 [![asciicast](https://asciinema.org/a/bHy3t2ky4YBnKLHnKLPyxYFqc.svg)](https://asciinema.org/a/bHy3t2ky4YBnKLHnKLPyxYFqc)
+
+json files [ json format ]
 
 [![asciicast](https://asciinema.org/a/0KcKwBl2KB2uWrkYMKB1J2cN5.svg)](https://asciinema.org/a/0KcKwBl2KB2uWrkYMKB1J2cN5)
